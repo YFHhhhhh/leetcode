@@ -38,7 +38,7 @@ int main() {
     int j = i, r = INT_MIN;
     while (j < n && range[j].l <= st) {
 			// 从i开始枚举后面的区间，若满足左端点小于st，则继续枚举，直到出现不满足的
-      r = max(r, range[j].r);// 同时记录下在此次while循环中最大的右端点，作为下次while循环的st
+      r = max(r, range[j].r);// 同时记录下在此次while循环中最大的右端点，作为下次while循环的st。***取右端点最大作为基准体现了贪心思想***
 			j++;
     }
     if (r < st) {
@@ -48,7 +48,7 @@ int main() {
     }
     res++;
     if (r >= ed) {
-			// 如果r值溢流大于总的ed，则终止循环即可
+			// 如果r值已经大于总的ed，则终止循环即可
       success = true;
       break;
     }
